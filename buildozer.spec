@@ -8,5 +8,5 @@ version = 0.1
 requirements = python3,pygame-ce
 orientation = landscape
 fullscreen = 1
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = armeabi-v7a
 android.allow_backup = True
