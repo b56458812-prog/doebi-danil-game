@@ -14,3 +14,4 @@ jobs:
         with:
           name: my-game-apk
           path: bin/*.apk
+          
