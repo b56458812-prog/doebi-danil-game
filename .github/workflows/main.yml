@@ -5,20 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-pip build-essential git python3 autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
-          pip3 install --user --upgrade buildozer Cython==0.29.33 setuptools
-
-      - name: Build APK with Buildozer
-        run: |
-          export PATH=$PATH:$HOME/.local/bin
-          yes | buildozer android debug
-
+      - name: Build APK
+        uses: GearSnd/buildozer-action@v1
+        with:
+          buildozer_version: master
+          command: android debug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: package
+          name: my-game-apk
           path: bin/*.apk
