@@ -20,8 +20,10 @@ jobs:
       - name: Build APK with Buildozer
         run: |
           export PATH=$PATH:$HOME/.local/bin
+          # Очистка перед сборкой, чтобы не было Broken pipe
+          buildozer android clean
           yes | buildozer android debug
-
+        
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
