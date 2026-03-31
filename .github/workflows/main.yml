@@ -6,13 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build with Buildozer
-        uses: ArtemSBulat/buildozer-action@v1
+      - name: Build APK
+        uses: GearSnd/buildozer-action@v1
         with:
           buildozer_version: master
           command: android debug
-          # Этот параметр поможет, если файлы лежат в корне
-          build_dir: .
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
